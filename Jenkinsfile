@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('verify version') {
       steps {
-        bat 'python -V'
+        bat 'php -version'
       }
     }
     stage('copy php code on xampp server') {
