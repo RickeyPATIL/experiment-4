@@ -1,16 +1,22 @@
 pipeline {
-  agent any
-  stages {
-    stage('verify version') {
-      steps {
-        bat 'php -version'
-      }
+    agent any
+    stages{
+        stage('checking python version') {
+            steps {
+                bat 'python -V'
+            }
+        }
+
+        stage('REPO Cloning'){
+            steps {
+                bat 'xcopy /S "*" "C:/xampp/htdocs/newxampp" /Y'   
+            }
+        }
+
+        stage('Print done'){
+            steps{
+                echo 'Done!'
+            }
+        }
     }
-    stage('copy php code on xampp server') {
-      steps {
-        bat 'xcopy /s "*" "D:/xampp/htdocs/myfirstproject1" /Y'
-      }
-    }
-      
-  }     
-  }
+}
